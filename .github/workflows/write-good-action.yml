@@ -1,0 +1,21 @@
+name: write-good-action
+
+on: [push]
+
+jobs:
+  write-good-test:
+    runs-on: ubuntu-latest
+    name: Build and test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install npm
+        uses: bahmutov/npm-install@v1
+      - run: npm t
+
+      - name: Install write-good
+        run: npm install write-good
+
+      - name: run write-good test
+        run: npx write-good *.md
