@@ -27,3 +27,4 @@ fi
 
 echo ""
 echo "Done."
+echo "OMG"
