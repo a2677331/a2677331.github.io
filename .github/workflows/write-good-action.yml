@@ -23,4 +23,5 @@ jobs:
 
       - name: run write-good test
         run: npx write-good ${{ github.workspace }}/*.md
-        run: echo "Workflow: ${{github.workflow}}"
+        
+      - run: echo "Workflow: ${{github.workflow}}"
