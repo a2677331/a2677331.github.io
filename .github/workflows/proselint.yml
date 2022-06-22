@@ -1,0 +1,26 @@
+name: proselint check
+
+on: [push]
+
+jobs:
+  write-good-test:
+    runs-on: ubuntu-latest
+    name: Build and test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10.0
+          architecture: x64
+        
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install proselint
+        run: pip install proselint
+
+      - name: run test
+        run: proselint ${{ github.workspace }}/*.md

@@ -1,4 +1,4 @@
-name: write-good-action
+name: write-good check
 
 on: [push]
 
@@ -23,5 +23,3 @@ jobs:
 
       - name: run write-good test
         run: npx write-good ${{ github.workspace }}/*.md
-        
-      - run: echo "🍏 This job's status is ${{ github.workflow }}."
