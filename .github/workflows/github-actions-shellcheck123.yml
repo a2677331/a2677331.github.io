@@ -1,6 +1,6 @@
 on: [push]
 
-name: 'Trigger: Push action'
+name: 'Shell Check Action'
 
 jobs:
   shellcheck:
