@@ -19,4 +19,4 @@ jobs:
         run: npm install write-good
 
       - name: run write-good test
-        run: npx write-good *.md
+        run: npx write-good ${{ github.workspace }}/*.md
