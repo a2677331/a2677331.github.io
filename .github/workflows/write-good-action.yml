@@ -5,7 +5,7 @@ on: [push]
 jobs:
   write-good-test:
     runs-on: ubuntu-latest
-    name: Build and test
+    name: check english using write-good
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -14,6 +14,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
+        run: sudo apt update
+        run: sudo apt install nodejs npm
 
       - name: Install write-good
         run: npm install write-good
