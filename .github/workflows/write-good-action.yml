@@ -1,22 +1,32 @@
-name: write-good-action
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-on: [push]
-
+name: 'Trigger: Push action'
 jobs:
-  write-good-test:
+  write_good_job:
     runs-on: ubuntu-latest
-    name: check english using write-good
+    name: A job to lint Markdown files
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14.x'
-
-      - name: Install write-good
-        run: npm install write-good
-
-      - name: run write-good test
-        run: npx write-good ${{ github.workspace }}/*.md
+    - uses: actions/checkout@v2
+    - name: write-good action step
+      id: write-good
+      uses: tomwhross/write-good-action@v1.5
+      # with:
+      #   directory: "manuscript" # Optional, uncomment to specify a directory to scan
+    # Use the output from the `write-good` step
+    - name: Get the write-good output
+      run: echo "${{ steps.write-good.outputs.result }}"
+    - name: Post comment
+      uses: mshick/add-pr-comment@v1
+      if: ${{ steps.write-good.outputs.result }}
+      with:
+        message: |
+          ${{ steps.write-good.outputs.result }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+        allow-repeats: false # This is the default
