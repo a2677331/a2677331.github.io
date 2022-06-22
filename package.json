@@ -1,0 +1,34 @@
+{
+  "name": "npm-install-example",
+  "version": "1.0.0",
+  "description": "Timing the bahmutov/npm-install GitHub action",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "6.23.0",
+    "commander": "7.1.0",
+    "eslint": "7.20.0",
+    "express": "4.17.1",
+    "gatsby": "2.32.4",
+    "graphql": "15.5.0",
+    "moment": "2.29.1",
+    "nexus": "1.0.0",
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
+  },
+  "devDependencies": {
+    "apollo-boost": "0.4.9",
+    "esprima": "4.0.1",
+    "graphql-tag": "2.11.0",
+    "nuxt": "2.15.2",
+    "parcel": "1.12.4",
+    "prettier": "2.2.1",
+    "typescript": "4.2.2"
+  }
+}
